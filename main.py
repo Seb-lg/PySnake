@@ -11,6 +11,6 @@ if __name__ == '__main__':
 		gen.run_generation()
 		if gen.population[0].fitness > max:
 			max = gen.population[0].fitness
-			gen.population[0].save("best_" + str(age) + ".nna")
+			gen.population[0].save("best_" + str(int(gen.population[0].fitness)) + ".nna")
 		gen.reproduce()
 		age += 1

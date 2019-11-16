@@ -49,7 +49,7 @@ class Snake(object):
 
 		self.score = 0
 		self.size = 3
-		self.food = self.width * 2
+		self.food = self.width * 3
 
 		for pos in self.snake:
 			self.board[pos[0]][pos[1]] = 2
@@ -129,7 +129,7 @@ class Snake(object):
 				tmpx = random.randint(0, self.width - 1)
 				tmpy = random.randint(0, self.width - 1)
 			self.board[tmpx][tmpy] = 1
-			self.food += self.width * 2
+			self.food += self.width * 3
 			self.size += 1
 		else:
 			oldpos = self.snake[0]

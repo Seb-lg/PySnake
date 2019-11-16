@@ -58,6 +58,8 @@ class NeatNeuralNetwork(object):
 			connection = Connection(self.neurons[prev], self.neurons[next])
 			connection.weight = weight
 			self.dna.append(connection)
+			self.neurons[prev].next_link.append(connection)
+			self.neurons[next].prev_link.append(connection)
 
 	def run(self, input_data):
 		for i in range(0, len(input_data)):
@@ -129,7 +131,7 @@ class NeatNeuralNetwork(object):
 	def mutate(self):
 		rd = uniform(0.0, 1.0)
 		if rd < 0.3:
-			for i in range(1):
+			for i in range(2):
 				if uniform(0.0, 1.0) > 0.2:
 					self.mutate_connection()
 		elif rd < 0.6:
