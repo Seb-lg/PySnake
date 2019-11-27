@@ -52,7 +52,7 @@ class Generation(object):
 			#brain.fitness = snake.score + snake.size * 5
 			# brain.fitness = snake.size * 3 + snake.score / 2
 			# brain.fitness = snake.size
-			brain.fitness = snake.size + math.log(snake.score/100)
+			brain.fitness = snake.size #+ math.log(snake.score/100)
 
 		self.population.sort(key=get_fit, reverse=True)
 

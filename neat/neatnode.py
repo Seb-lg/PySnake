@@ -2,7 +2,7 @@ from math import exp
 
 
 def sigmoid(x):
-	return 1 / (1 + exp(-x))
+	return (1 / (1 + exp(-x))) * 2 - 1
 
 
 class Node(object):
