@@ -32,11 +32,11 @@ if __name__ == '__main__':
 			best.dna[z].weight = pso.population[0].best[z]
 
 		plt.clf()
-		for brain in pso.population:
-			ynna = []
-			for elem in x:
-				ynna.append(brain.neuralNetwork.run(data[elem][:-1])[0])
-			#plt.plot(x, ynna)
+		#for brain in pso.population:
+		#	ynna = []
+		#	for elem in x:
+		#		ynna.append(brain.neuralNetwork.run(data[elem][:-1])[0])
+		#	plt.plot(x, ynna)
 		ynna = []
 		for elem in x:
 			ynna.append(best.run(data[elem][:-1])[0])
@@ -51,7 +51,7 @@ if __name__ == '__main__':
 
 	print(data[49][1])
 	print(pso.population[0].neuralNetwork.run(data[49][:-1]))
-	plt.imsave(file + ".png")
-	pso.save(file+" mse " +pso.population[0].best_fitness.__str__()+".pso")
+	plt.savefig(file + ".png")
+	pso.save(file+"_mse_" +pso.population[0].best_fitness.__str__()+".pso")
 	while True:
 		pass
