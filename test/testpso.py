@@ -7,14 +7,15 @@ from nna.nna import NeuralNetwork
 
 if __name__ == '__main__':
 	plt.ion()
-	pso = PSO(40, 1, [4, 8, 4], 1)
-	best = NeuralNetwork(1, [
+	pso = PSO(40, 2, [4, 8, 4], 1)
+	best = NeuralNetwork(2, [
 		4, 8, 4], 1)
 	print(best.dna.__len__())
 	data = []
 	x = []
 	y = []
-	with open("/home/seb/PySnake/pso/Data/1in_linear.txt", "r") as file1:
+	file = "2in_complex"
+	with open("../pso/Data/" + file + ".txt", "r") as file1:
 		for line in file1.readlines():
 			f_list = [float(i) for i in line.split() if i.strip()]
 			data.append(f_list)
@@ -47,5 +48,6 @@ if __name__ == '__main__':
 
 	print(data[49][1])
 	print(pso.population[0].neuralNetwork.run(data[49][:-1]))
+	pso.save(file+" mse " +pso.population[0].best_fitness.__str__()+".pso")
 	while True:
 		pass
