@@ -86,7 +86,7 @@ class Generation(object):
 	def reproduce(self):
 		for i in range(50, len(self.population)):
 			mother = self.population[random.randint(0, 49)]
-			self.population[i] = copy.deepcopy(mothsaer)
+			self.population[i] = copy.deepcopy(mother)
 			child = self.population[i]
 			child.mutate()
 			child.clean()
