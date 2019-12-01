@@ -14,6 +14,7 @@ if __name__ == '__main__':
 	data = []
 	x = []
 	y = []
+	z = 0
 	file = "2in_complex"
 	with open("../pso/Data/" + file + ".txt", "r") as file1:
 		for line in file1.readlines():
@@ -50,6 +51,7 @@ if __name__ == '__main__':
 
 	print(data[49][1])
 	print(pso.population[0].neuralNetwork.run(data[49][:-1]))
+	plt.imsave(file + ".png")
 	pso.save(file+" mse " +pso.population[0].best_fitness.__str__()+".pso")
 	while True:
 		pass
