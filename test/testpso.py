@@ -7,18 +7,20 @@ from nna.nna import NeuralNetwork
 
 if __name__ == '__main__':
 	plt.ion()
-	pso = PSO(40, 1, [4, 8, 4], 1)
-	best = NeuralNetwork(1, [
-		4, 8, 4], 1)
+	pso = PSO(40, 1, [8, 16, 8], 1)
+	best = NeuralNetwork(1, [8, 16, 8], 1)
 	print(best.dna.__len__())
 	data = []
 	x = []
 	y = []
+	z = 0
 	with open("/home/seb/PySnake/pso/Data/1in_linear.txt", "r") as file1:
 		for line in file1.readlines():
 			f_list = [float(i) for i in line.split() if i.strip()]
 			data.append(f_list)
-			x.append(data[-1][0])
+			#x.append(data[-1][0])
+			x.append(z)
+			z += 1
 			y.append(data[-1][-1])
 
 	for i in range(100):
@@ -31,11 +33,11 @@ if __name__ == '__main__':
 		for brain in pso.population:
 			ynna = []
 			for elem in x:
-				ynna.append(brain.neuralNetwork.run([float(elem)])[0])
-			plt.plot(x, ynna)
+				ynna.append(brain.neuralNetwork.run(data[elem][:-1])[0])
+			#plt.plot(x, ynna)
 		ynna = []
 		for elem in x:
-			ynna.append(best.run([float(elem)])[0])
+			ynna.append(best.run(data[elem][:-1])[0])
 
 		plt.title("MSE: " + pso.population[0].best_fitness.__str__())
 		plt.plot(x, y)
