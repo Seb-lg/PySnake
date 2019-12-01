@@ -15,7 +15,8 @@ class Node(object):
 		self.next_link = []
 
 	def activate(self):
-		self.total = 0
+		self.total = 0.0
 		for connection in self.prev_link:
 			self.total += connection.prev.activated * connection.weight
+		#self.activated = math.tanh(self.total)
 		self.activated = sigmoid(self.total)

@@ -15,7 +15,7 @@ class Generation(object):
 		self.population = []
 		self.graphical = graphical
 		for i in range(population):
-			nna = NeatNeuralNetwork(24, 4, 20)
+			nna = NeatNeuralNetwork(24, 4, 2)
 			# nna.mutate()
 			self.population.append(nna)
 		if graphical:
@@ -52,7 +52,7 @@ class Generation(object):
 			#brain.fitness = snake.score + snake.size * 5
 			# brain.fitness = snake.size * 3 + snake.score / 2
 			# brain.fitness = snake.size
-			brain.fitness = snake.size #+ math.log(snake.score/100)
+			brain.fitness = snake.size + math.log(snake.score/100)
 
 		self.population.sort(key=get_fit, reverse=True)
 

@@ -129,7 +129,7 @@ class Snake(object):
 				tmpx = random.randint(0, self.width - 1)
 				tmpy = random.randint(0, self.width - 1)
 			self.board[tmpx][tmpy] = 1
-			self.food += self.width * 100
+			self.food += self.width * 10
 			self.size += 1
 		else:
 			oldpos = self.snake[0]

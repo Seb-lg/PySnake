@@ -130,17 +130,17 @@ class NeatNeuralNetwork(object):
 
 	def mutate(self):
 		rd = uniform(0.0, 1.0)
-		if rd < 0.3:
-			for i in range(2):
-				if uniform(0.0, 1.0) > 0.2:
-					self.mutate_connection()
-		elif rd < 0.6:
-			for i in range(1):
-				if self.dna.__len__() != 0 and uniform(0.0, 1.0) > 0.5:
-					self.mutate_node()
-		else:
-			for i in range(1):
-				if self.dna.__len__() != 0 and uniform(0.0, 1.0) > 0.3:
-					self.mutate_weight()
+		#if rd < 0.3:
+		for i in range(2):
+			if uniform(0.0, 1.0) > 0.2:
+				self.mutate_connection()
+		#elif rd < 0.6:
+		for i in range(1):
+			if self.dna.__len__() != 0 and uniform(0.0, 1.0) > 0.5:
+				self.mutate_node()
+		#else:
+		for i in range(1):
+			if self.dna.__len__() != 0 and uniform(0.0, 1.0) > 0.3:
+				self.mutate_weight()
 
 
