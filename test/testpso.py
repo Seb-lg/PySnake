@@ -14,7 +14,7 @@ if __name__ == '__main__':
 	x = []
 	y = []
 	z = 0
-	with open("/home/seb/PySnake/pso/Data/1in_linear.txt", "r") as file1:
+	with open("../pso/Data/1in_linear.txt", "r") as file1:
 		for line in file1.readlines():
 			f_list = [float(i) for i in line.split() if i.strip()]
 			data.append(f_list)
