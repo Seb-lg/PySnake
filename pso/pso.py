@@ -43,7 +43,7 @@ class PSO:
 				personnal_best = (elem.best[i] - elem.neuralNetwork.dna[i].weight)
 				global_best = (self.population[0].best[i] - elem.neuralNetwork.dna[i].weight)
 				global_means = (moy[i] - elem.neuralNetwork.dna[i].weight)
-				elem.speed[i] += uniform(0.0, 2.0) * personnal_best + uniform(0.0, 2.0) * global_best + uniform(0.0, 2.0) * global_means
+				elem.speed[i] = uniform(0.0, 2.0) * elem.speed[i] + uniform(0.0, 2.0) * personnal_best + uniform(0.0, 2.0) * global_best# + uniform(0.0, 2.0) * global_means
 				#elem.speed[i] = -0.2089 * elem.speed[i] + uniform(-0.0787, 0) * personnal_best + uniform(0, 3.7637) * global_best
 				elem.neuralNetwork.dna[i].weight = max(min(elem.speed[i] + elem.neuralNetwork.dna[i].weight, 1), -1)# + uniform(0.0, 2.0) * personnal_best + uniform(0.0, 2.0) * global_best# + uniform(0.0, 0.1) * global_means
 

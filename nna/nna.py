@@ -46,17 +46,11 @@ class NeuralNetwork(object):
 		for i in range(0, len(input_data)):
 			self.layers[0][i].activated = input_data[i]
 
-		#for layer in self.layers:
-		#	for neuron in layer:
-		#		neuron.total = 0.0
-
 		for i in range(1, len(self.layers)):
 			for neuron in self.layers[i]:
-				#for prev in neuron.prev_link:
-				#	neuron.total += prev.prev.activated * prev.weight
 				neuron.activate()
+
 		out = []
 		for neuron in self.layers[-1]:
-			# neuron.activate()
 			out.append(neuron.activated)
 		return out
