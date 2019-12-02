@@ -14,7 +14,6 @@ class NeuralNetwork(object):
 		tmp = []
 		for i in range(0, input):
 			tmp.append(Node())
-
 		self.layers.append(tmp)
 
 		for layer in hiddenlayer:
@@ -30,7 +29,6 @@ class NeuralNetwork(object):
 
 
 		# Setting Connections
-		#print(len(self.layers))
 		for i in range(len(self.layers) - 1):
 			for current in self.layers[i]:
 				for next in self.layers[i + 1]:
@@ -39,17 +37,21 @@ class NeuralNetwork(object):
 					next.prev_link.append(link)
 					self.dna.append(link)
 
+		#randomise weight
 		for connection in self.dna:
 			connection.weight = random.uniform(-1.0, 1.0)
 
 	def run(self, input_data):
+		#set input data in the neural network
 		for i in range(0, len(input_data)):
 			self.layers[0][i].activated = input_data[i]
 
+		#run the neural network
 		for i in range(1, len(self.layers)):
 			for neuron in self.layers[i]:
 				neuron.activate()
 
+		#return the out put of the neural network
 		out = []
 		for neuron in self.layers[-1]:
 			out.append(neuron.activated)

@@ -1,9 +1,9 @@
 import sys
-sys.path.append("../")
-sys.path.append("../venv/lib/python3.7/site-packages")
+sys.path.append("./venv/lib/python3.7/site-packages")
 import matplotlib.pyplot as plt
 from pso.pso import PSO
 from nna.nna import NeuralNetwork
+
 
 if __name__ == '__main__':
 	plt.ion()
@@ -15,7 +15,7 @@ if __name__ == '__main__':
 	y = []
 	z = 0
 	file = "1in_sine"
-	with open("../pso/Data/" + file + ".txt", "r") as file1:
+	with open("./pso/Data/" + file + ".txt", "r") as file1:
 		for line in file1.readlines():
 			f_list = [float(i) for i in line.split() if i.strip()]
 			data.append(f_list)
@@ -42,9 +42,7 @@ if __name__ == '__main__':
 
 		pso.update_weights()
 
-	print(data[49][1])
-	print(pso.population[0].neuralNetwork.run(data[49][:-1]))
-	print("LA: " + pso.population[0].best_fitness.__str__())
+	print("MSE: " + pso.population[0].best_fitness.__str__())
 	plt.savefig(file + ".png")
 	while True:
 		pass

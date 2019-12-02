@@ -15,8 +15,8 @@ class Node(object):
 		self.next_link = []
 
 	def activate(self):
+		#set the sactivated value of a neuron
 		self.total = 0.0
-		for connection in self.prev_link:
-			self.total += connection.prev.activated * connection.weight
-		#self.activated = math.tanh(self.total)
+		for previous in self.prev_link:
+			self.total += previous.prev.activated * previous.weight
 		self.activated = sigmoid(self.total)

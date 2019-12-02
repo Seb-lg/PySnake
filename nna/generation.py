@@ -10,7 +10,6 @@ def get_fit(elem):
 
 prcent = 10
 
-
 class Generation(object):
 	def __init__(self, population):
 
